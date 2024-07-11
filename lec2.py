@@ -85,13 +85,14 @@ False or True
 a=True
 b=False
 a or b
-min(a+b,1)
+min(a+b,-2)
 
 a=False
 b=False
 a or b
 min(a+b,1)
-
+c=min('apple','banana','cherry')
+print(c)
 a=3
 a+=10
 a
@@ -116,7 +117,7 @@ str1 *3
 repeated_str = str1 * 3
 print("Repeated string:", repeated_str)
 
-str1 *2.5
+str1 *2.5 > 불가 
 
 # 정수 integer > int 
 # 실수 float > double 
@@ -173,4 +174,7 @@ var1=[1,2,3]
 sum(var1)
 c
 !pip install pydataset
-
+score=[80,60,70,50,90]
+sum(score)
+sum_score=sum(score)
+sum_score
