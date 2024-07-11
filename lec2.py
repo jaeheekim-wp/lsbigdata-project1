@@ -178,3 +178,6 @@ score=[80,60,70,50,90]
 sum(score)
 sum_score=sum(score)
 sum_score
+
+
+#testttt
