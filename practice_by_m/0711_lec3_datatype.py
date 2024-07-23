@@ -81,6 +81,7 @@ type(result)
 #딕셔너리는 효율적인 데이터 검색, 수정 및 관리를 위한 다양한 부가기능(메서드)들을 제공
 #주요 메서드로는 get(), update(), keys(), values(), items()
 
+
 person = {
 'name': 'John',
 'age': 30,

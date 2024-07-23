@@ -92,9 +92,10 @@ mpg["total"].mean() #메서드활용
 mpg["total"].describe()
 
 #히스토그램 
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
+
 mpg["total"].plot.hist()
-plot.show()
+plt.show()
 plt.clf()
 
 #합격 판정 변수
@@ -108,7 +109,7 @@ mpg["test"].value_counts()
 count_test= mpg["test"].value_counts()
 #막대그래프 
 count_test.plot.bar(rot=0)
-plot.show()
+plt.show()
 
 #연비 등급 변수 ( 중첩 조건문 활용 )
 mpg["grade"]= np.where(mpg["total"]>=30,"A",
@@ -122,7 +123,7 @@ plot.show()
 ### 알파벳 순으로 막대 정렬
 count_grade= mpg["grade"].value_counts().sort_index()
 count_grade.plot.bar(rot=0)
-plot.show()
+plt.show()
 
 
 

@@ -286,7 +286,6 @@ print(b.size)  # 출력: 6
 c = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
 print(c.size)  # 출력: 8
 
-
 b = np.array([[1, 2, 3], [4, 5, 6]])
 length = len(b) # 첫 번째 차원의 길이
 shape = b.shape # 각 차원의 크기
@@ -326,14 +325,14 @@ x = np.array([1, 2, 4, 5])
 y = x * 2
 print("상수 곱셈:", y)
 
-#3과 동일한 값 TRUE
+#3과 동일한 값이면 true로 전환 
 b==3 
 
 #10보다 작은 수 중에서 7로 나눠서 나머지가 3인 숫자들의 갯수는?
 np.arange(1,10)
 (np.arange(1,10) % 7)==3
 sum((np.arange(1,10) % 7)==3) 
-#true를 1로 인식식
+#true를 1로 인식
 
 #35672보다 작은 수 중에서 7로 나눠서 나머지가 3인 숫자들의 갯수는?
 
@@ -401,5 +400,3 @@ vector
 # 브로드캐스팅을 이용한 배열 덧셈
 result = matrix + vector
 print("브로드캐스팅 결과:\n", result)
-
-

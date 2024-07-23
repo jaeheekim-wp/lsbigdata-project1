@@ -6,15 +6,19 @@ df= pd.DataFrame({'name': ['김지훈', '이유진', '박동현', '김민지'],
 'math':[50,60,100,20]}) 
 df
 df['english']
+df['name']
 sum(df['english'])
 df['math']
 sum(df['math'])
 sum(df['english'])/4
 sum(df['math'])/4
+
 df= pd.DataFrame({'제품':['사과', '딸기', '수박'],
 '가격':[1800,1500,3000],
 '판매량':[24,38,13]})
-df['가격']
+# 평균값 
+df['가격'].mean()
+df['가격'].sum()
 sum(df['가격'])/3
 df['판매량']
 sum(df['판매량'])/3
@@ -47,7 +51,7 @@ df_midtern.to_csv('output_newdata.csv')
 #!pip install seaborn
 
 import seaborn as sns
-import matplotlib.pyplot as plt   >약어 
+import matplotlib.pyplot as plt  
 
 #show 보여주기 / clf지우기 
 plt.show()
