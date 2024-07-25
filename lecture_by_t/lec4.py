@@ -137,7 +137,6 @@ vec3=np.arange(0, 100)
 vec2
 
 
-
 # np.linspace : 함수 사용하여 지정 갯수의 숫자 배열 형성, 균일 간격
 numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
 # 갯수 미지정시 기본값은 50 

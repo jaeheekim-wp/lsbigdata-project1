@@ -20,6 +20,13 @@ exam.info()
 exam.describe()
  # 문자로 된 변수의 요약 통계량을 함꼐 출력하려면 include = all
 exam
+exam[["nclass"]] # 데이터프레임
+exam["nclass"] # 시리즈
+exam["nclass"].mean() # 시리즈
+exam["nclass"].max() # 시리즈
+exam["nclass"].min() # 시리즈
+exam["nclass"].min() # 시리즈
+exam["nclass"].sum() # 시리즈
 
 type(exam)
 var=[1,2,3]
@@ -27,12 +34,15 @@ type(var)
 exam.head() #데이터프레임에서만 가능 
 # var.head() 에러
 
-# 파일 복제하기 
+# 파일 복제하기 ( deep copy )
 exam2 = exam.copy()
 
 # 변수명 변경
 exam2 = exam2.rename(columns={"nclass" : "class"})
 exam2
+ ## inplace 옵션 활용시 변수를 재할당하지 않아도 바로 변경 가능.
+exam2.rename(columns={"nclass" : "class"}, inplace = True)
+
 
 # 파생변수 추가하기
 exam2["total"] = exam2["math"] + exam2["english"] + exam2["science"]

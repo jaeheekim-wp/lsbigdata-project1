@@ -1,10 +1,11 @@
 # lec6 행렬
 
-# 벡터들을 사용하여 만들 수 있는 객체.
+# 벡터(숫자들의 리스트)들을 사용하여 만들 수 있는 객체.
 
 import numpy as np
+import pandas as pd
 
-# 두 개의 벡터를 합쳐 행렬 생성
+# 두 개의 벡터를 가로로 합쳐 행렬 생성
 
 matrix = np.vstack(
     (np.arange(1, 5),
@@ -22,6 +23,7 @@ np.zeros([5, 4])
 
 # 행렬의 크기는 무조건 사각형
 # reshape() 함수를 사용하여 행의 수(nrow)와 열의 수 (ncol) 지정
+# reshape(행, 열)
 
 np.arange(1, 7).reshape((2, 3))
 
@@ -29,26 +31,26 @@ np.arange(1, 7).reshape((2, 3))
 
 np.arange(1, 7).reshape((2, -1))
 
------------------------------------------------------------------
-
+----------------------------------------------------------------------------
+# 예제제
 # Q. 0에서 99까지 수 중 랜덤하게 50개 숫자를 뽑아서
 # 5 by 10 행렬 만드세요.
 np.random.seed(2024)
 a = np.random.randint(0, 100, 50).reshape(5, -1)
 a
 
+mat_a = np.arange(1, 21).reshape((4, 5), order="F")
+mat_a
+
 # 행렬을 채우는 방법 - order 옵션
 # order='C': 행 우선 순서 (row-major order), 기본값, C 언어 스타일. 행 먼저 
 # order='F': 열 우선 순서 (column-major order), Fortran 언어 스타일, 열 먼저
 
-mat_a = np.arange(1, 21).reshape((4, 5), order="F")
-mat_a
-
-
+----------------------------------------------------------------------
 # 행렬 인덱싱
  ## 인덱싱(Indexing) :  행렬의 특정 원소에 접근하는 방법
  ## 순서쌍 문법은 [row, col]
- 
+
 mat_a[0, 0]
 mat_a[1, 1]
 mat_a[2, 3]
@@ -67,6 +69,8 @@ mat_b[1::2,:]
 
 # 리스트로 직접 지정해 선택 추출
 mat_b[[1, 4, 6, 14], ]
+
+# 인덱싱/슬라이싱으로 선택 추출 
 
 mat_b[:,1]                  # 벡터
 mat_b[:,1].reshape((-1, 1)) # 행렬
@@ -120,6 +124,9 @@ import matplotlib.pyplot as plt
 np.random.seed(2024)
 img1 = np.random.rand(3, 3)
 print("이미지 행렬 img1:\n", img1)
+
+# np.random.rand(3, 3)는 0과 1 사이의 실수 난수를 생성하여 3x3 배열을 만듭니다.
+# 결과적으로, img1은 3행 3열의 배열이 되며, 각 요소는 0과 1 사이의 난수입니다.
 
 plt.imshow(img1, cmap='gray', interpolation='nearest')
 plt.colorbar()

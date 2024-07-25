@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 
-# 데이터 전처리 함수
+# 데이터 전처리(data preprocessing) 
+# pandas 패키지 함수
 
-# query()  행추출 
-# df[] 열(변수)추출 (
- ## 그래서 우리가 이전에 계속 df["total"]  이렇게 사용 
+# query()  행 추출 
+# df[] 열(변수)추출 ## ex) df["total"] 
 # drop() 변수 버리기
 # sort_values() 정렬 
 # assign() 변수 추가
@@ -66,7 +66,6 @@ exam[["id", "nclass"]]
 ----------------------------------------------------------
 
 # 변수 버리기 .drop()
-
 exam.drop(columns = ["math", "english"])
 exam
  ## ch)exam2 = exam2.rename(columns={"nclass" : "class"}) - 중괄호
@@ -102,9 +101,9 @@ exam = exam.assign(
 -----------------------------------------------------------------------------
 
 # 정렬하기(chap4-100번대 참고)
-exam.sort_values("math") # 오름차순 (작은 숫자부터 )
-exam.sort_values("math", ascending = False) #내림차순 
-exam.sort_values(["nclass", "english"], ascending = [True, False]) #오름차순 안에 내림차순
+exam.sort_values("math") # 오름차순 (작은 숫자부터)
+exam.sort_values("math", ascending = False) # 내림차순 
+exam.sort_values(["nclass", "english"], ascending = [True, False]) # 오름차순 안에 내림차순
     
 # 정렬로 삼을 변수가 두개 이상이라면 []활용하여 리스트 만들어서 사용 
 exam = exam.assign(
@@ -117,7 +116,6 @@ exam.head()
 
 
 # lambda 함수 사용하기
-
 exam2 = pd.read_csv("data/exam.csv")
 
 exam2 = exam2.assign(
@@ -134,6 +132,8 @@ exam2.head()
 # 집단별 요약 통계
 # 그룹을 나눠 요약을 하는
 
+## agg() 요약 통계량 함수 
+
 exam2.agg(mean_math = ("math", "mean"))
 exam2.groupby("nclass") \
      .agg(
@@ -141,6 +141,8 @@ exam2.groupby("nclass") \
          mean_eng = ("english", "mean"),
          mean_sci = ("science", "mean"),
      )
+
+
 
 # 예제학습 153p/158p
 import pandas as pd
@@ -210,7 +212,7 @@ test2
 
 mpg = pd.read_csv("data/mpg.csv")
 mpg
-
+mpg.loc[0:3] # 인덱싱은 3까지 , 넘파이 어레이일땐 미만 
 
 fue1 = pd.DataFrame({"f1" : ["c", "d", "e","p", "r"],
                     "price_f1" : [2.35, 2.38, 2.11, 2.76, 2.22]

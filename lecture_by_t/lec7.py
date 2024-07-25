@@ -66,6 +66,7 @@ repeated_list = [x for x in numbers for y in range(4)]
 repeated_list = [x for x in numbers for _ in range(4)]
 repeated_list
 
+
 # for 루프 문법
 # for i in 범위:
 #   작동방식
@@ -177,6 +178,7 @@ for x in range(5):
     print(x)
 
 --------------------------------------------------
+
 # 원소 체크
 
 fruits = ["apple", "banana", "cherry"]
@@ -194,8 +196,7 @@ mylist
 
 import numpy as np
 fruits = ["apple", "apple", "banana", "cherry"]
-fruits = np.array(fruits) 
-  ##넘파이 배열은 파이썬 리스트와 유사하지만, 벡터화 연산과 같은 고급 기능을 제공
+fruits = np.array(fruits)  ##넘파이 배열은 파이썬 리스트와 유사하지만, 벡터화 연산과 같은 고급 기능 제공
 int(np.where(fruits == "banana")[0][0])
 
 # np.where(fruits == "banana")
@@ -208,8 +209,8 @@ int(np.where(fruits == "banana")[0][0])
  ## 04. [0]은 첫 번째 반환 값을 선택. np.where는 튜플을 반환하는데, 첫 번째 요소가 우리가 원하는 인덱스 배열입니다.
  ## 05. np.where(fruits == "banana")[0]는 array([2])가 됩니다.
  ## 06. [0]은 이 배열의 첫 번째 요소를 선택하는 것입니다. array([2])[0]는 2
- 
- 
+
+# 리스트 메서드 
 
 # 원소 거꾸로 써주는 reverse()
 fruits = ["apple", "apple", "banana", "cherry"]

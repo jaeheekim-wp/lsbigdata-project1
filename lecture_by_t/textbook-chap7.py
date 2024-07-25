@@ -1,3 +1,4 @@
+!pip install 
 import pandas as pd
 import numpy as np
 
@@ -6,6 +7,7 @@ df = pd.DataFrame({
     "score": [5, 4, 3, 4, np.nan]
     })
 df
+a=[1,2,3]
 
 
 df["score"] + 1
@@ -32,7 +34,6 @@ df.dropna(subset = ["score", "sex"]) # 여러 변수 결측치 제거법
 exam=pd.read_csv("data/exam.csv")
 
 ## 숫자를 결측치로 대체 
-
 # exam.loc[[2,7,14], ["math"]] = np.nan
 exam.iloc[[2,7,14], 2] = np.nan
 exam.iloc[[2,7,14], 2] = 3
@@ -53,8 +54,8 @@ exam["math"].isna().sum()
 # pandas 라이브러리 함수
 # 데이터프레임에서 정수 인덱스를 기반으로 행과 열을 선택할 때 사용
 
-# exam.loc[행 인덱스, 열 인덱스] (리스트)
-# exam.iloc[행 인덱스, 열 인덱스] (숫자)
+# exam.loc[행 인덱스, 열 인덱스] (문자) - 390p참고 
+# exam.iloc[행 인덱스, 열 인덱스] (숫자) - 400p참고
 
  ## iloc 사용법:
    ## df.iloc[행 인덱스]: 단일 행 선택
@@ -65,8 +66,10 @@ exam["math"].isna().sum()
    ## df.iloc[행 인덱스, 열 인덱스]: 특정 행과 열의 교차점 선택
 
 exam=pd.read_csv("data/exam.csv")
-
-exam.loc[0, 0]
+exam
+exam.loc[0, 3]
+# 에러 : loc[]는 인덱스 번호로 행 추출만 가능,열은 문자열
+exam.loc[0 : 2] # 행만 추출 가능 
 exam.iloc[0:2, 0:4]
 
 -------------------------------------------------------------------------------
@@ -86,8 +89,8 @@ exam.iloc[np.where(exam["english"] >= 90)[0], 3]  # np.where 도 튜플이라 [0
 exam.iloc[exam[exam["english"] >= 90].index, 3]   # index 벡터도 작동
 
 # exam["english"] >= 90 : 데이터 프레임 
-# np.array(exam["english"] >= 90) : 넘파이 어레이 백터 >> true 값 해당하는 열 추출 
-# np.where(exam["english"] >= 90) : 튜플 안에 넘파이 어레이 
+# np.array(exam["english"] >= 90) : 넘파이 어레이 백터  
+# np.where(exam["english"] >= 90) : 튜플 안에 넘파이 어레이 >> true 값 해당하는 열 추출
 # np.where(exam["english"] >= 90)[0] : 튜플 안의 넘파이 어레이를 [0]으로 꺼내 해당 열 추출 
 
 # math 점수 50 이하 "-" 변경

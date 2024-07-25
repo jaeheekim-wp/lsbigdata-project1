@@ -19,6 +19,10 @@ type(df)
 type(df[["name"]])
 type(df["name"])
 
+df[["name"]].sum()
+df["name"].sum()
+
+
 # 평균
 sum(df["english"])/4
 df["english"].mean()
@@ -30,7 +34,7 @@ df["name"]
 
 pd.show_versions()
 
-# !pip install openpyxl
+!pip install openpyxl
 import pandas as pd
 
 df_exam=pd.read_excel("data/excel_exam.xlsx")
