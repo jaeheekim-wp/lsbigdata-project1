@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 # !pip install seaborn
 import seaborn as sns
 import matplotlib.pyplot as plt
+=======
+import pandas as pd
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 
 mpg=pd.read_csv("data/mpg.csv")
 mpg.shape
 
+<<<<<<< HEAD
 sns.barplot(data = mpg, y = "hwy")
 
 # 산점도 만들기 - 변수 간 관계표현 199p
@@ -14,11 +19,20 @@ sns.barplot(data = mpg, y = "hwy")
 
 plt.figure(figsize=(3, 2)) 
 # 사이즈 조정
+=======
+# !pip install seaborn
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+plt.clf()
+plt.figure(figsize=(3, 2)) # 사이즈 조정
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 sns.scatterplot(data=mpg, 
                 x="displ", y="hwy",
                 hue="drv") \
    .set(xlim=[3, 6], ylim=[10, 30])
 plt.show()
+<<<<<<< HEAD
 plt.clf()
 
 # 그래프 설정 바꾸기기
@@ -33,10 +47,15 @@ plt.rcdefaults
 
 # 막대그래프 만들기 - 집단 간 차이 표현 205p
 
+=======
+
+# 막대그래프
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 # mpg["drv"].unique()
 df_mpg=mpg.groupby("drv", as_index=False) \
           .agg(mean_hwy=('hwy', 'mean'))
 df_mpg
+<<<<<<< HEAD
 
 plt.clf()
 
@@ -135,4 +154,15 @@ plt.scatter(x, my_df["right_ci"], color="red", s=1)
 plt.show()
 plt.clf()
 
+=======
+plt.clf()
+sns.barplot(data=df_mpg.sort_values("mean_hwy"),
+            x = "drv", y = "mean_hwy",
+            hue = "drv")
+plt.show()
+
+mpg
+
+
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 

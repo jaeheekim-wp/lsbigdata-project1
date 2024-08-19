@@ -1,13 +1,23 @@
 import pandas as pd
+<<<<<<< HEAD
 import seaborn as sns
 # !pip install seaborn
 import matplotlib.pyplot as plt
 
+=======
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 
 mpg = pd.read_csv("data/mpg.csv")
 mpg.shape
 
 
+<<<<<<< HEAD
+=======
+import seaborn as sns
+!pip install seaborn
+import matplotlib.pyplot as plt
+
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 plt.figure(figsize = (3,2)) 
 # 사이즈 조정 
 sns.scatterplot(data = mpg,
@@ -40,6 +50,7 @@ df_mpg
 
 # barplot : 행렬을 가진 가공된 데이터 
 sns.barplot(data = df_mpg, x = "drv" , y = "n")
+<<<<<<< HEAD
 # countplot : 원 데이터를 바로 사용 
 sns.countplot(data = mpg, x = "drv")
 
@@ -112,3 +123,10 @@ plt.show()
 plt.clf()
 
 
+=======
+# countplot : 원데이터를 바로 사용 
+sns.countplot(data = mpg, x = "drv")
+
+
+                
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a

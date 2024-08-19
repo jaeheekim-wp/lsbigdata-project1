@@ -25,7 +25,10 @@ df.dropna()                          # 모든 변수 결측치 제거
 df.dropna(subset = "score")          # score 변수에서 결측치 제거
 df.dropna(subset = ["score", "sex"]) # 여러 변수 결측치 제거법
 
+<<<<<<< HEAD
  ## subset : 부분집합 
+=======
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
  ## ch)exam.drop(columns = ["math", "english"])- 변수 버리기
  
 ---------------------------------------------------------------------------
@@ -96,7 +99,11 @@ exam.iloc[exam[exam["english"] >= 90].index, 3]   # index 벡터도 작동
 
 # math 점수 50 이하 "-" 변경
 exam=pd.read_csv("data/exam.csv")
+<<<<<<< HEAD
 exam.loc[exam["math"] <= 50, "math"] = "-" 
+=======
+exam.loc[exam["math"] <= 50, "math"] = "-"
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 exam
 
 # "-" 결측치를 수학점수 평균 바꾸고 싶은 경우
@@ -118,7 +125,11 @@ math_mean = exam["math"].mean()
 exam.loc[pd.isna(exam['math']), ['math']] = math_mean
 exam
 
+<<<<<<< HEAD
 # 5 np.where 사용해 할당- 187p
+=======
+# 5
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
 math_mean = np.nonmean(np.array([np.nan if x == '-' else float(x) for x in exam["math"]]))
 exam["math"] = np.where(exam["math"] == "-", math_mean, exam["math"])
 exam
@@ -129,4 +140,8 @@ exam["math"] = exam["math"].replace("-", math_mean)
 exam
 
 df.loc[df["score"] == 3.0, ["score"]] = 4
+<<<<<<< HEAD
 df 
+=======
+df
+>>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
