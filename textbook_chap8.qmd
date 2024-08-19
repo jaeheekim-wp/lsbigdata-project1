@@ -1,0 +1,71 @@
+---
+title: "textbook chap 8"
+format: html
+jupyter: python3
+---
+
+## 빈도 막대 그래프 그리기
+
+데이터 불러오기 
+```{python}
+import pandas as pd
+mpg = pd.read_csv("data/mpg.csv")
+mpg.shape
+mpg
+```
+
+seaborn 패키지 불러오기 
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.express as px
+```
+
+* scatterplot 산점도 그리기
+
+```{python}
+sns.scatterplot(data = mpg,
+                x = "displ",
+                y = "hwy",
+                hue = "drv") \
+        .set(xlim=[3,6],ylim =[10,30])
+```
+
+* plotly 산점도 그리기
+
+```{python}
+import plotly.express as px
+px.scatter(data_frame = mpg, x = "cty", y = "hwy", color = "drv")
+```
+## "barplot()" 사용하기
+
+데이터 전처리 하기
+
+```{python}
+mpg.groupby("drv") \
+...     .agg(mean_hwy = ("hwy","mean"))
+
+# 변수 두개인 데이터 프레임화 as_index
+df_mpg = mpg.groupby("drv", as_index = False) \
+            .agg(mean_hwy = ("hwy","mean"))
+df_mpg
+```
+
+*"barplot" 사용해서 그래프 그리기 
+
+```{python}
+sns.barplot(data = df_mpg.sort_values("mean_hwy", ascending = False),
+            x = "drv", y = "mean_hwy", hue = "drv")
+plt.show()
+plt.clf()
+```
+
+*"countplot" 사용해서 그래프 그리기 
+
+```{python}
+sns.countplot(data = mpg, x = "drv",hue = "drv")
+plt.show()
+plt.clf()
+```
+
