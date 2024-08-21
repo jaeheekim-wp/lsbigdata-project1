@@ -2,6 +2,10 @@
 # !pip install palmerpenguins
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
 import plotly.express as px
 from palmerpenguins import load_penguins
 
@@ -86,6 +90,9 @@ fig.show()
 
 # 범주형 변수로 회귀분석 진행하기
 # 범주형 변수인 'species'를 더미 변수로 변환
+
+penguins = load_penguins()
+
 penguins_dummies = pd.get_dummies(
     penguins, 
     columns=['species'],
@@ -102,8 +109,8 @@ y = penguins_dummies["bill_depth_mm"]
 model = LinearRegression()
 model.fit(x, y)
 
-model.coef_
-model.intercept_
+model.coef_ # array([ 0.20044313, -1.93307791, -5.10331533])
+model.intercept_  # np.float64(10.565261622823762)
 
 regline_y=model.predict(x)
 

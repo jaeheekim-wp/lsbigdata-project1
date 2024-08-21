@@ -6,7 +6,7 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
-df_covid19_100=pd.read_csv(".././data/df_covid19_100.csv")
+df_covid19_100=pd.read_csv("../data/df_covid19_100.csv")
 
 df_covid19_100.info()
 

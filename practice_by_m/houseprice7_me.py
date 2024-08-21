@@ -5,7 +5,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression 
 
 ## 필요한 데이터 불러오기
 house_train=pd.read_csv("./data/houseprice/train.csv")

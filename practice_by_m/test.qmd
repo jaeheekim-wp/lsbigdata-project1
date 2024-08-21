@@ -1,0 +1,68 @@
+---
+title: "**Ames House Exterior Trend**"
+author: "dashboard test"
+format: 
+  dashboard:
+    theme: Simplex
+    scrolling: True
+    logo: "img/teletobi.jpg"
+    css: style.css
+    nav-buttons:
+      - icon: github
+        href: https://github.com/jaeheekim-wp/mywebsite
+      - text: "김재희"
+
+    html:
+    includes:
+      in_header: path/to/font-awesome.css                         
+---
+
+# {.sidebar}
+
+#### 제목
+
+내용
+
+# page1
+
+## 가로 {height=200px} {.tabset}
+
+### 탭1
+안녕
+
+### 탭2
+안녕
+
+### 탭3
+안녕
+
+
+## 가로 {height=400px}
+
+### 세로 {width=10%}  
+하이
+
+::: {.card title=**배고파**}
+
+너도?
+
+:::
+
+### 세로 {width=10%}
+하이
+
+```{python}
+#| content: valuebox
+#| title: "HdBoard(🔻83)"
+dict(
+  icon = "emoji-tear",
+  color = "#F7C94C",
+  value = "3"
+)
+```
+
+### 세로 {width=80%}
+하이
+
+
+# page2
