@@ -34,7 +34,7 @@ for x in names:
    
 # ====================================
 np.random.seed(42)
-ccccc
+
 b = np.arange(3).repeat(3)
 
 np.random.choice(a,size=10,replace=False)

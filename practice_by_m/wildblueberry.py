@@ -8,11 +8,17 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_squared_error
 
 
+import os
+# 워킹 디렉토리 확인 
+os.getcwd()
+# 워킹 디렉토리 변경 
+os.chdir('c:/Users/USER/Documents/LS 빅데이터스쿨/lsbigdata-project1/data/blueberry')
+
 # Regression with a Wild Blueberry Yield Dataset
 
-berry_train = pd.read_csv("./data/blueberry/train.csv")
-berry_test = pd.read_csv("./data/blueberry/test.csv")
-sub_df = pd.read_csv("./data/blueberry/sample_submission.csv")
+berry_train = pd.read_csv("train.csv")
+berry_test = pd.read_csv("test.csv")
+sub_df = pd.read_csv("sample_submission.csv")
 
 # 결측치 없음/ 범주형도 없음- 더미 진행 x 
 # ==========================================
@@ -286,7 +292,7 @@ sub_df.to_csv("./data/blueberry/all_Lasso_rain.csv", index=False)
 # =====================================================
 
 # 7조
-# 이용규, 김재희, 송현주, 박수빈
+# 이용규, 김재희, 송현주, 박수빈 
 # 362.44
 
 import numpy as np
@@ -368,7 +374,7 @@ sub['yield'] = final_predictions
 # 파일로 저장
 sub.to_csv('../data/WildBlueberry/sample_submission.csv', index=False)
 
-# ==================================================
+# =================================================
 
 # 조: 6조
 # 팀원: 이승학, 박유나, 김연예진, 오서연
@@ -381,9 +387,9 @@ lasso = pd.read_csv("./data/blueberry/lasso.csv")
 linear = pd.read_csv("./data/blueberry/linear.csv")
 
 
-yield_ri = ridge["yield"] # 예진
-yield_la = lasso["yield"] # 서연
-yield_li = linear["yield"] # 유나
+yield_ri = ridge["yield"]
+yield_la = lasso["yield"]
+yield_li = linear["yield"]
 
 yield_total = ((yield_ri * 6) + (yield_la * 3) + (yield_li * 1))/10
 
@@ -400,7 +406,7 @@ sub_df["yield"] = yield_total
 # csv 파일로 내보내기
 sub_df.to_csv("./data/blueberry/submission_total3.csv", index=False)
 
-# ===
+# ====================================
 
 # Ridge 
 
@@ -447,7 +453,7 @@ model.fit(train_x, train_y) # train 적용
 
 pred_y=model.predict(test_x) # test로 predict 하기
 
-# =====
+# ================================
 
 # Lasso
 
@@ -551,3 +557,5 @@ pred_y = model.predict(test_x)
 sub_df["yield"] = pred_y
 
 sub_df.to_csv("sample_submission_linear.csv", index=False)
+
+
