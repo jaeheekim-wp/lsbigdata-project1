@@ -55,7 +55,8 @@ import seaborn as sns
 # 확률 질량 함수
 # 특정 횟수만큼 성공할 확률을 계산
 # probability mass function
-
+a = np.array(1,2,3)
+a = np.array([])
 # 각 가능한 값에 확률을 할당하는 함수
 # bernoulli.pmf(k, p)
 # P(X=1)
@@ -99,7 +100,7 @@ bernoulli.pmf(0, 0.3)
 
 # X1 ~ Bernulli(p=0.3)
 bernoulli.rvs(p=0.3)
-
+norm.rvs(loc=3,scale=2,size=3)
 # X2 ~ Bernulli(p=0.3)
 bernoulli.rvs(p=0.3)
 
@@ -211,9 +212,7 @@ binom.pmf(2, n=2, p=0.3)
 
 # binom.rvs: 동전을 던졌을 때 무작위로 나올 결과를 시뮬레이션한다.
 # binom.pmf: 동전을 던졌을 때 특정 결과가 나올 확률을 계산한다.
-
->>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
------------------------------------------------------------
+# ----------------------------------
 # 예제
 
 # X ~ B(30, 0.26)
@@ -223,19 +222,26 @@ binom.pmf(2, n=2, p=0.3)
 # 표본 30개를 뽑아보세요!
 binom.rvs(n=30, p=0.26, size=1)   # 파라미터는 모집단
 binom.rvs(n=30, p=0.26, size=30)   # 사이즈는 랜덤 샘플 값값
-=======
+#- -----------------------------------
 # 기대값 30*0.26 = 7.8-
 
 # 표본 30개를 뽑아보세요!
 binom.rvs(n=30, p=0.26, size=10)   # 파라미터는 모집단
 binom.rvs(n=30, p=0.26, size=30)   
->>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
+# ----------------------------------
 
 # X ~ B(n, p)
+a = np.arange(0,31,2)
+a = np.linspace(0,30,15)
 
+from impot
 # list comp.
 result=[binom.pmf(x, n=30, p=0.3) for x in range(31)]
 result
+
+for x in range(31):
+  result.append(binom.pmf(x,n=30,p=0.3))
+
 # [(앞면이 0번 나올 확률), (앞면이 1번 나올 확률), ..., (앞면이 30번 나올 확률)]
 
 # numpy
@@ -257,7 +263,7 @@ math.factorial(54) / (math.factorial(26) * math.factorial(28))
 math.comb(54, 26)
 
 # ======몰라도 됨====================================
->>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
+
 # 1*2*3*4
 # np.cumprod(np.arange(1, 5))[-1]
 # fact_54=np.cumprod(np.arange(1, 55))[-1]

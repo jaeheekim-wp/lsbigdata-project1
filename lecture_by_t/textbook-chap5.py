@@ -43,15 +43,14 @@ exam2
  ## inplace 옵션 활용시 변수를 재할당하지 않아도 바로 변경 가능.
 exam2.rename(columns={"nclass" : "class"}, inplace = True)
 
-
 # 파생변수 추가하기
 exam2["total"] = exam2["math"] + exam2["english"] + exam2["science"]
 
  ## total 변수의 평균 구하기
 sum(exam2["total"]) / len(exam2)
 exam2["total"].mean()
-
 exam2.head()
+
 
 # 조건문 활용해 변수 만들기 
 exam2["test"] = np.where(exam2["total"] >= 200, "pass", "fail")
@@ -70,10 +69,16 @@ exam2.head()
 
 exam2["test2"].isin(["A", "C"]) 
 
----------------------------------------------------------
-
+# ---------------------------------------------------------
+# 115 실습
 mpg = pd.read_csv("data/mpg.csv")
 mpg
+# 복사본
+mpg_new = mpg.copy()
+# 변수명 변경
+mpg_new = mpg_new.rename(columns = {"cty" : "city", "hwy" :"highway"})
+mpg_new
+# 변수 추가 
 mpg["total"] = (mpg["cty"] + mpg["hwy"]) / 2
 mpg["test"] = np.where(mpg["total"]>=20, "pass", "fail")
 mpg["grade"] = np.where(mpg["total"]>=30, "A",
@@ -81,15 +86,15 @@ mpg["grade"] = np.where(mpg["total"]>=30, "A",
                
 # 목록에 해당하는 행으로 변수만들기(128p)
 mpg["size"] = np.where(mpg["category"].isin(["compact","subcompact","2seater"]), "small", "large")
-  
-  ---------------               
+
+# ----------------              
 # 그래프 만들기 
 import matplotlib.pyplot as plt
-
 
 # plot.hist() 히스토그램 만들기 
 # 히스토그램- 값의 빈도를 막대길이로 표현
 # 분포도 확인 
+
 mpg["total"].plot.hist()
 plt.show()
 
@@ -124,3 +129,28 @@ plt.ylabel('Value')
 plt.show()
 plt.clf()
 
+# ============130 실습 
+midwest = pd.read_csv("data/midwest.csv")
+midwest
+
+midwest = midwest.rename(columns = { "poptotal" : "total",
+                                     "popasian" : "asian"})
+midwest
+
+midwest["ratio"] = (midwest["asian"] / midwest["total"]) *100
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 그래프 - seaborn/ plot
+sns.histplot(data =  midwest, x = "ratio")
+midwest["ratio"].plot.hist()
+
+# 합격판정변수
+ratio_m = np.mean(midwest["ratio"])
+# midwest["ratio"].mean()
+midwest["size"] = np.where(midwest["ratio"]> ratio_m, "large" , "small")
+
+count = midwest["size"].value_counts()
+count.plot.bar()
+sns.countplot(data = midwest, x = "size", hue = "size")

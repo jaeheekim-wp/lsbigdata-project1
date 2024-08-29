@@ -41,10 +41,12 @@ neighborhood_dummies = pd.get_dummies(
 neighborhood_dummies
 
 # 숫자형 데이터와 합치기 
-# pd.concat([df_a, df_b], axis=1)
+# pd.concat([df_a, df_b], axis=1) ch) np.concatanate
 x= pd.concat([house_train[["GrLivArea", "GarageArea"]], 
              neighborhood_dummies], axis=1)
+x
 y = house_train["SalePrice"]
+y
 
 # 선형 회귀 모델 생성
 model = LinearRegression()
@@ -78,7 +80,7 @@ pred_y=model.predict(test_x) # test 셋에 대한 집값
 pred_y
 
 # SalePrice 바꿔치기
-sub_df["SalePrice"] = pred_y
+sub_df ["SalePrice"] = pred_y
 sub_df
 
 # csv 파일로 내보내기

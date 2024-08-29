@@ -51,7 +51,9 @@ fig.update_layout(
 # 점 크기 및 투명도 설정
 fig.update_traces(marker=dict(size=10, opacity = 0.7))
 
+# 그래프 보여주기 
 fig.show()
+
 
 # ==========================
 

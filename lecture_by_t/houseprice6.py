@@ -75,7 +75,7 @@ test_x = test_x.fillna(test_x.mean())
     
  ## inplace=True - 원래 데이터프레임인 test_x를 직접 수정/ 새로운 시리즈 생성 x
 
------------
+# =================================
 # 테스트 데이터 집값 예측 
 pred_y = model.predict(test_x)
 
