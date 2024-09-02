@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_squared_error
 
-
+# 워킹 디렉토리 변경 
 import os
 # 워킹 디렉토리 확인 
 os.getcwd()
