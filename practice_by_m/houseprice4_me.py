@@ -32,7 +32,7 @@ model = LinearRegression()
 model.fit(x, y) # fit함수가 자동으로 기울기, 절편 값을 구해줌.
 
 # 회귀 직선의 기울기와 절편
-model.coef_         # 기울기 a
+model.coef_         # 기울기 a 
 model.intercept_    # 절편 b
 
 slope = model.coef_
@@ -85,7 +85,6 @@ sub_df
 #csv로 바꿔치기
 sub_df.to_csv("data/houseprice/sample_submission9.csv", index = False)
 
---------------------
 
 
-
+import numpy as np
