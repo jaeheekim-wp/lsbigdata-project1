@@ -1,7 +1,7 @@
 
 # 의사결정트리
-# f 스트링/ 리스트컴프리 이용!
-# 지피티 코드에서 오류 잡아냄! 처음임! 감격스러움 
+# f 스트링/ 리스트컴프리 이용
+# dct1의 for문이랑 비교해보기
 
 import pandas as pd
 import numpy as np
@@ -86,7 +86,3 @@ x_values_group2 = np.arange(group2["x"].min()+0.01, group2["x"].max(), 0.01)
 result_group2 = np.array([my_mse(group2, x) for x in x_values_group2])
 second_split_group2 = x_values_group2[np.argmin(result_group2)]
 second_split_group2 # 19.4 
-
-## dct1의 for문이랑 비교해보기 
-
-

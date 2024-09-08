@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 from palmerpenguins import load_penguins
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 penguins = load_penguins()
 penguins.head()
@@ -17,8 +19,7 @@ df=df.rename(columns={'species' : 'y',
 df
 
 # x1,x2 산점도 그리기 , 점 색깔은 종별로 다르게 
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 plt.figure(figsize=(8, 6))
 sns.scatterplot(data=df, x='x1', y='x2', hue='y')
@@ -26,7 +27,7 @@ plt.xlabel("Bill Length (mm)")
 plt.ylabel("Bill Depth (mm)")
 plt.title("Penguin Species by Bill Length and Depth")
 # 수직선 추가 
-plt.axvline(x = 45)
+plt.axvline(x=42.4)
 plt.show()
 
 # Q1. 나누기 전 현재의 엔트로피?
@@ -52,7 +53,6 @@ entropy2 = -sum(p_2 * np.log2(p_2))
 
 entropy_x1_45 = (n1 * entropy1 + n2 * entropy2) / (n1 + n2)
 
-# =======================
 
 # 기준값 x를 넣으면 entropy값이 나오는 함수는?
 def my_entropy(x): 
@@ -71,7 +71,6 @@ def my_entropy(x):
 my_entropy(45)
 
 # x1 기준으로 최적 기준값은 얼마인가?
-
 # entropy계산을 해서 가장 작은 entropy가 나오는 x는?
 import numpy as np
 from scipy import optimize
@@ -117,6 +116,37 @@ my_entropy(42.30999999999797)
 # 최적 -> 42.31
 # 그때의 엔트로피 -> 80.43
 # =================== 한렬 ========================
+
+# =================== 이삭샘 ========================
+def entropy(col):
+    entropy_i = []
+    for i in range(len(df[col].unique())):
+        df_left = df[df[col]< df[col].unique()[i]]
+        df_right = df[df[col]>= df[col].unique()[i]]
+        info_df_left = df_left[['y']].value_counts() / len(df_left)
+        info_df_right = df_right[['y']].value_counts() / len(df_right)
+        after_e_left = -sum(info_df_left*np.log2(info_df_left))
+        after_e_right = -sum(info_df_right*np.log2(info_df_right))
+        entropy_i.append(after_e_left * len(df_left)/len(df) + after_e_right * len(df_right)/len(df))
+    return entropy_i
+
+entropy_df = pd.DataFrame({
+    'standard': df['x1'].unique(),
+    'entropy' : entropy('x1')
+    })
+
+entropy
+entropy_df.iloc[np.argmin(entropy_df['entropy']),:]
+
+# standard    16.400000
+# entropy      0.834074
+
+# standard    42.400000
+# entropy      0.804269
+# x1, 42.4 선택: 엔트로피가 더 낮음!
+# =================== 이삭샘 ========================
+
+
 
 
 # x, y 산점도를 그리고, 빨간 평행선 4개 그려주세요!
