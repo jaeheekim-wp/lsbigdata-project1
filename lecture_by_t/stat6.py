@@ -14,11 +14,17 @@ obs_x=np.random.choice(np.arange(100), 20)
 epsilon_i=norm.rvs(loc=0, scale=100, size=20)
 obs_y = 2*obs_x+3 + epsilon_i
 
-# 그래프 그리기
-plt.plot(x, y, label='y = 2x + 3', color="black")
-plt.scatter(obs_x, obs_y, color="blue", s=3)
-# plt.show()
-# plt.clf()
+# 앱실론이 있어야 식 추정 가능
+# 앱실론 ;노이즈 같은 
+# 예를 들어 레이더에 목표물이 어디있는지 신호를 받는데 
+# 그 좌표가 정확하지 않으니까 그 좌표에 대한 오차값 같은 
+
+
+# 그래프 그리기 
+plt.plot(x, y, label= "y = 2x +3", color = 'black') # 볼 수 없는 값 
+plt.scatter(obs_x, obs_y, color = 'blue', s=3) # 우리가 볼 수 있는 값들 
+plt.show()
+plt.clf()
 
 from sklearn.linear_model import LinearRegression
 
@@ -42,9 +48,13 @@ plt.plot(x, y, color="red") # 회귀직선
 plt.show()
 plt.clf()
 
-model
-summary(model)
+# !pip install statsmodels
+import statsmodels.api as sm
 
+obs_x = sm.add_constant(obs_x)
+model = sm.OLS(obs_y,obs_x).fit()
+print(model.summary())
+# 기울기 / 절편 값 포함한 다양한 값 제공
 # -----------------------
 
 # !pip install statsmodels
@@ -53,9 +63,10 @@ import statsmodels.api as sm
 obs_x = sm.add_constant(obs_x)
 model = sm.OLS(obs_y,obs_x).fit()
 print(model.summary())
- # 기울기 / 절편 값 포함한 다양한 값 제공
+# 기울기 / 절편 값 포함한 다양한 값 제공
+
  
-# 검정 통계량 ---------------------------------------------
+# 검정 통계량 
 
 # mu = 10 (귀무가설)
 # mu != 10 (대립가설)
@@ -68,7 +79,7 @@ norm.cdf(18, loc =10, scale = 1.96)
 # p-value 유의확률 -
 # 엄청 작은 확률인데도 불구하고 이 값이 나왔어?  - 귀무가설 기각, 못믿어!
 
-------------------------------------------------------
+# ------------------------------------------------------
 # hw6
 
 # 귀무가설 H0 mu >=16 > 1등급 부여 

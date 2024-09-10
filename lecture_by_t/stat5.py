@@ -74,9 +74,9 @@ z_005=norm.ppf(0.95, loc=0, scale=1)
 # 90% 신뢰구간
 x.mean() + z_005 * 6 / np.sqrt(16)
 x.mean() - z_005 * 6 / np.sqrt(16)
--------------------------------------------
 
-# 데이터로부터 E[X^2] 구하기
+
+
 x=norm.rvs(loc=3, scale=5, size=100000)
 
 np.mean(x**2)

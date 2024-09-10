@@ -71,7 +71,6 @@ b = norm.cdf(28, loc = 30, scale = np.sqrt(4**2/8))
 a-b
 
 # 결언니 코드 
-
 # 표본을 8개 뽑아서 표본평균 X_bar 계산
 # P(28 < X_bar < 29.7) = ?
 
@@ -92,7 +91,6 @@ import matplotlib.pyplot as plt
 k = np.linspace(-2, 40, 500)
 y = chi2.pdf(k, df = 7)
 plt.plot(k, y, color="black")
-
 
 mat_a = np.array([14, 4, 0, 10]).reshape(2,2)
 mat_a

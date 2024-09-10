@@ -15,6 +15,7 @@ df1 = pd.get_dummies(
     drop_first=True
     )
 
+# nan 값 - f/f/f
 # ------------------------------------------------------
 # NaN 없음
 data = {
