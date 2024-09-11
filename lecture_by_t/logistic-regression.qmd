@@ -1,0 +1,114 @@
+---
+title: "로지스틱 리그레션 문제 풀이"
+format: revealjs
+---
+
+
+
+## 변수들
+
+**종속변수**: 백혈병 세포 관측 불가 여부 (REMISS), 1이면 관측 안됨을 의미
+
+**독립변수**:
+    골수의 세포성 (CELL)
+    골수편의 백혈구 비율 (SMEAR)
+    골수의 백혈병 세포 침투 비율 (INFIL)
+    골수 백혈병 세포의 라벨링 인덱스 (LI)
+    말초혈액의 백혈병 세포 수 (BLAST)
+    치료 시작 전 최고 체온 (TEMP)
+
+## 1. 데이터를 로드하고, 로지스틱 회귀모델을 적합하고, 회귀 표를 작성하세요.
+
+```{python}
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import norm
+
+leukemia_df = pd.read_csv('C:/Users/User/Documents/LSBigDataSchool/lsbigdata_project1/Data/leukemia_remission.txt', delimiter='\t')
+print(leukemia_df)
+```
+
+로지스틱 회귀모델 적합 및 회귀표 작성
+
+```{python}
+model = sm.formula.logit("REMISS ~ CELL + SMEAR + INFIL + LI + BLAST + TEMP", data=leukemia_df).fit()
+print(model.summary())
+```
+
+## 2. 해당 모델은 통계적으로 유의한가요? 그 이유를 검정통계량를 사용해서 설명하시오.
+
+LLR p-value가 유의수준 0.05보다 작으므로 모델 자체는 유의하다고 볼 수 있다.
+
+## 3. 유의수준이 0.2를 기준으로 통계적으로 유의한 변수는 몇 개이며, 어느 변수 인가요?
+
+2개. LI, TEMP
+
+## 4. 다음 환자에 대한 오즈는 얼마인가요? 
+- CELL: 65% SMEAR: 45% INFIL: 55% LI: 1.2 BLAST: 1.1 세포/μL TEMP: 0.9
+
+```{python}
+log_odds = (64.2581 + (30.8301* 0.65) + (24.6863 * 0.45) + (-24.9745 * 0.55) + (4.3605*1.2) + (-0.0115 * 1.1) + (-100.1734 * 0.9))
+odds = np.exp(log_odds)
+print(odds)
+```
+
+## 5. 위 환자의 혈액에서 백혈병 세포가 관측되지 않은 확률은 얼마인가요?
+
+```{python}
+p_hat = odds / (odds + 1)
+print(p_hat)
+```
+
+## 6. TEMP 변수의 계수는 얼마이며, 해당 계수를 사용해서 TEMP 변수가 백혈병 치료에 대한 영향을 설명하시오.
+
+-100.1734
+
+np.exp(-100.1734)은 0에 가까운 값이다. 이는 체온이 1단위 상승할 때 백혈병 세포가 관측되지 않을 확률이 거의 없어지는 것을 의미(오즈비만큼 변동)한다. 따라서, 온도가 높아질수록 백혈병 세포가 관측될 확률 높아진다.
+
+## 7. CELL 변수의 99% 오즈비에 대한 신뢰구간을 구하시오.
+
+```{python}
+np.exp(30.8301 + 2.58*52.135)
+```
+
+```{python}
+np.exp(30.8301 - 2.58*52.135)
+```
+
+(9.400043131530397e-46, 6.390793233753385e+71)
+
+## 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬을 구하시오.
+
+```{python}
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay
+
+train = leukemia_df.drop(columns=('REMISS'))
+
+y_pred = model.predict(train)
+result = pd.DataFrame({'y_pred' : y_pred})
+result['result'] = np.where(result['y_pred']>=0.5, 1,0)
+
+conf_mat = confusion_matrix(y_true = leukemia_df['REMISS'], y_pred = result['result'], labels=[1,0])
+p = ConfusionMatrixDisplay(confusion_matrix = conf_mat, display_labels = ('1', '0'))
+p.plot(cmap="Blues")
+```
+
+## 9. 해당 모델의 Accuracy는 얼마인가요?
+(5+15)/(5+3+4+15)
+
+```{python}
+from sklearn.metrics import accuracy_score
+accuracy_score(leukemia_df['REMISS'], result['result'])
+```
+
+## 10. 해당 모델의 F1 Score를 구하세요.
+precision = 5/(5+3)
+recall = 5/(5+4)
+f1 = 2 / (1/precision + 1/recall)
+
+```{python}
+from sklearn.metrics import f1_score
+f1_score(leukemia_df['REMISS'], result['result'])
+```

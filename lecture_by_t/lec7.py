@@ -63,7 +63,7 @@ combined_list = list1 + list2
 
 numbers = [5, 2, 3]
 repeated_list = [x for x in numbers for y in range(4)]
-repeated_list = [x for x in numbers for _ in range(4)]
+repeated_list2 = [x for x in numbers for _ in range(4)]
 repeated_list
 
 

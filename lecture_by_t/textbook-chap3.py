@@ -57,7 +57,7 @@ import pandas as pd
 df_exam = pd.read_csv('exam.csv')
 df_exam
 
-혼자서 해보기
+# 혼자서 해보기
 
 score = [80,90.70]
 sum(score)

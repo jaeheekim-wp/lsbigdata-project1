@@ -10,7 +10,7 @@
 <link href="quarto-ppt_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.56">
 
-  <meta name="author" content="재희">
+  <meta name="author" content="Issac Lee">
   <title>쿼토 PPT 만들기</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -99,6 +99,8 @@
   <link href="quarto-ppt_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="quarto-ppt_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="quarto-ppt_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="quarto-ppt_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="quarto-ppt_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="quarto-ppt_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -396,7 +398,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-재희 
+Issac Lee 
 </div>
 </div>
 </div>
@@ -420,7 +422,7 @@
 <li>Count sheep</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div id="573aaa0b" class="cell" data-execution_count="1">
+<div id="30a0ad01" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="annotated-cell-1" data-code-line-numbers="4,6"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3"></a></span>
@@ -507,6 +509,30 @@
 </section>
 <section id="새-슬라이드" class="slide level2" data-background-color="aquamarine">
 <h2>새 슬라이드</h2>
+<p>스피커뷰 노트가 있는 슬라이드 입니다. <code>s</code> 키를 누르면 스크립트가 나옵니다.</p>
+<aside class="notes">
+<p>Speaker notes go here.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="슬라이드-네비게이션" class="slide level2">
+<h2>슬라이드 네비게이션</h2>
+<ul>
+<li>Full 스크린: <code>f</code>키</li>
+<li>오버뷰 모드: <code>o</code>키, <code>ESC</code>키</li>
+<li>줌 인/아웃: <code>Alt</code> + 클릭</li>
+<li>PDF 추출 모드 (스크롤해서 볼 수 있음): <code>e</code>키</li>
+<li>슬라이드 내용 찾는 법: <code>Ctrl</code>+<code>Shift</code>+<code>f</code></li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -524,6 +550,7 @@
   <script src="quarto-ppt_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="quarto-ppt_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="quarto-ppt_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="quarto-ppt_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="quarto-ppt_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -544,7 +571,8 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -715,7 +743,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
