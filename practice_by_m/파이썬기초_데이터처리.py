@@ -1,7 +1,7 @@
 # 리스트
 l1 = []
 l1
-l2 = list()
+l2 = list()# dddd
 l2
 l3 = [1,3,5]
 l3
