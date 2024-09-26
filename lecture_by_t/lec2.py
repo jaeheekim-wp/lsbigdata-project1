@@ -90,9 +90,9 @@ print("성인입니까?", is_adult)
 
 a = "True"
 type(a)
-b = TRUE
+b = True
 
-c = true
+# c = true
 d = True
 
 # True, False
@@ -163,7 +163,7 @@ a
 
 
 str1 = "hello"
-strl + str1
+str1 + str1
 str1 + " " + str1
 str1 * 3
 # 문자열 곱셉은 정수로만 가능
@@ -201,10 +201,10 @@ max(3, 4)
 var1 = [1, 2, 3]
 sum(var1)
 
-!pip install pydataset
+# !pip install pydataset
 
-import pydataset
-pydataset.data()
+# import pydataset
+# pydataset.data()
 
-df = pydataset.data("AirPassengers")
-df
+# df = pydataset.data("AirPassengers")
+# df

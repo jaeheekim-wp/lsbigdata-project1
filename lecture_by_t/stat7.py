@@ -61,7 +61,7 @@ result.df # 자유도
  ## alpha < p_value : 귀무가설 채택
  ## 기각역은 유의수준에 대응하는 x축의 영역
 
-#95% 신뢰구간 구하기
+# 95% 신뢰구간 구하기
 ci=result.confidence_interval(confidence_level=0.95)
 ci[0]
 ci[1]

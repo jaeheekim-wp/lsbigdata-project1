@@ -14,8 +14,6 @@ import numpy as np
 # merge() 가로로 데이터 합치기 (열)
 # concat() 세로로 데이터 합치기 (행)
 
------------------------------------------------------------------
-
 exam = pd.read_csv("data/exam.csv")
 
 # 행 걸러내기 .query()
@@ -82,10 +80,8 @@ exam
 # 1반의 수학,영어 성적 추출 
 ## 1반에 해당하는 행  + 수학/ 영어에 해당하는 변수 동시 추출 
 
-exam.query("nclass == 1")[["math", "english"]] 
-exam.query("nclass == 1") \
-    [["math", "english"]] \ 
-    .head()
+exam.query("nclass == 1")[["math", "english"]].head()
+
 
 exam.query("nclass == 1")[["math", "english"]].sort_values("math")
 exam.query("nclass == 1")[2:4].sort_values("math")

@@ -38,6 +38,7 @@ plt.clf()
 plt.rcParams.update({'figure.dpi' : '150',
                      'figure.figsize' : [8,6],
                      'font.size' : '15',
+})
 
 
 # 설정 되돌리기
@@ -146,7 +147,6 @@ plt.scatter(x, my_df["right_ci"], color="red", s=1)
 plt.show()
 plt.clf()
 
-=======
 plt.clf()
 sns.barplot(data=df_mpg.sort_values("mean_hwy"),
             x = "drv", y = "mean_hwy",
@@ -154,7 +154,3 @@ sns.barplot(data=df_mpg.sort_values("mean_hwy"),
 plt.show()
 
 mpg
-
-
->>>>>>> 2a9062c51a0754a93a01446d84bf61ec8755369a
-

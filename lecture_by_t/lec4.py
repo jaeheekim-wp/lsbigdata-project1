@@ -139,7 +139,7 @@ vec2
 
 
 # np.linspace : 함수 사용하여 지정 갯수의 숫자 배열 형성, 균일 간격
-numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
+# numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
 # 갯수 미지정시 기본값은 50 
 l_space1 = np.linspace(1, 100, 100)
 l_space1 = np.linspace(1, 100)
@@ -155,8 +155,8 @@ linear_space3 = np.linspace(1, 100, 20, endpoint=True, retstep=True, dtype=None)
 linear_space3
 #마지막 100 포함, 결과와 함께 샘플 간격 반환
 
-## tip. 앞에 물음표 붙이면 해당 함수에 대한 설명 
-?np.linspace
+# ## tip. 앞에 물음표 붙이면 해당 함수에 대한 설명 
+# ?np.linspace
 
 
 #배열 반복 (반복할 백터 , 반복 횟수수)

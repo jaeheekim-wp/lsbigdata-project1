@@ -74,7 +74,7 @@ admission_data['gender'] = admission_data['gender'].astype('category')
 model = sm.formula.logit("admit ~ gre + gpa + rank + gender", data=admission_data).fit()
 
 print(model.summary())
-입학할 확률의 오즈가 
+
 np.exp(0.7753)
 
 # 여학생
